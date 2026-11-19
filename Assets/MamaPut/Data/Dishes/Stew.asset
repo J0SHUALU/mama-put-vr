@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649b72d34f7094c89a23e0a29a77b5a8, type: 3}
+  m_Name: Stew
+  m_EditorClassIdentifier: Assembly-CSharp::MamaPut.DishData
+  displayName: Stew
+  pricePerPortion: 100
+  portionPrefab: {fileID: 1378293884299345309, guid: 8368bf54605ae461b90bb2504541828b, type: 3}
+  servedWithTongs: 0
+  shortLabel: S
+  chipColor: {r: 0.6392157, g: 0.1764706, b: 0.1764706, a: 1}
+  chipTextColor: {r: 0.9882353, g: 0.92156863, b: 0.92156863, a: 1}
