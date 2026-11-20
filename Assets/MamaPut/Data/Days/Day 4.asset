@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13da8eb9b6fb4ad69d0c324727a202c, type: 3}
+  m_Name: Day 4
+  m_EditorClassIdentifier: Assembly-CSharp::MamaPut.DayConfig
+  dayNumber: 4
+  customerCount: 12
+  patienceSeconds: 50
+  secondsBetweenCustomers: 5
+  maxItemsPerOrder: 3
+  target: 7500
+  exactMoneyOnly: 0
+  menu:
+  - {fileID: 11400000, guid: 22f1449d4ab5c46daae19e6af09d8e31, type: 2}
+  - {fileID: 11400000, guid: dcc57f20e39e549709494b3b66ae53ea, type: 2}
+  - {fileID: 11400000, guid: f5cdb08c0b1cb462eb4e5f9675c9a16a, type: 2}
+  - {fileID: 11400000, guid: 6ec408b9061294998a3e4f4eb648aca2, type: 2}
+  - {fileID: 11400000, guid: 09fe437425d6047108a6145e1695e611, type: 2}
+  briefing: Rush hour. Keep an eye on the pots.

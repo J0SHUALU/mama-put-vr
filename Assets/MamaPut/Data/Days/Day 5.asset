@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13da8eb9b6fb4ad69d0c324727a202c, type: 3}
+  m_Name: Day 5
+  m_EditorClassIdentifier: Assembly-CSharp::MamaPut.DayConfig
+  dayNumber: 5
+  customerCount: 15
+  patienceSeconds: 45
+  secondsBetweenCustomers: 4
+  maxItemsPerOrder: 3
+  target: 10000
+  exactMoneyOnly: 0
+  menu:
+  - {fileID: 11400000, guid: 22f1449d4ab5c46daae19e6af09d8e31, type: 2}
+  - {fileID: 11400000, guid: dcc57f20e39e549709494b3b66ae53ea, type: 2}
+  - {fileID: 11400000, guid: f5cdb08c0b1cb462eb4e5f9675c9a16a, type: 2}
+  - {fileID: 11400000, guid: 6ec408b9061294998a3e4f4eb648aca2, type: 2}
+  - {fileID: 11400000, guid: 09fe437425d6047108a6145e1695e611, type: 2}
+  - {fileID: 11400000, guid: e0d7943e83ff24677b47a4a6fae0b568, type: 2}
+  briefing: Lunch rush and beans. Nobody wants to wait.
