@@ -1,0 +1,48 @@
+newmtl DanfoAmber
+Ka 1 1 1
+Kd 0.95 0.78 0.12
+Ks 0.1 0.1 0.1
+d 1
+illum 2
+
+newmtl DanfoBlack
+Ka 1 1 1
+Kd 0.04 0.04 0.04
+Ks 0.1 0.1 0.1
+d 1
+illum 2
+
+newmtl DanfoGlass
+Ka 1 1 1
+Kd 0.16 0.40 0.60
+Ks 0.1 0.1 0.1
+d 1
+illum 2
+
+newmtl DanfoLamp
+Ka 1 1 1
+Kd 0.98 0.98 0.95
+Ks 0.1 0.1 0.1
+d 1
+illum 2
+
+newmtl DanfoOrange
+Ka 1 1 1
+Kd 0.86 0.47 0.05
+Ks 0.1 0.1 0.1
+d 1
+illum 2
+
+newmtl DanfoTail
+Ka 1 1 1
+Kd 0.78 0.1 0.08
+Ks 0.1 0.1 0.1
+d 1
+illum 2
+
+newmtl DanfoTyre
+Ka 1 1 1
+Kd 0.14 0.14 0.15
+Ks 0.1 0.1 0.1
+d 1
+illum 2
