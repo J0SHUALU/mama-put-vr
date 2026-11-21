@@ -56,7 +56,7 @@ Assets/MamaPut/
   Scripts/
     Interfaces/   IUtensil, IFoodSource, IPlate, IPaymentHandler, ICustomerState and the rest
     Core/         DishData, DayConfig, Order, PlateContents, GameEvents, ObjectPool, Naira
-    Interaction/  GrabbableItem, Utensil (Ladle, Tongs), FoodPot (pots), Plate, PlateStack, RefillBowl
+    Interaction/  GrabbableItem, Utensil (Ladle, Tongs), FoodPot (pots), Plate, PlateStack, RefillBowl, ControllerHand
     Money/        NairaNote, NoteDispenser, CustomerWallet, CashBox
     Customers/    Customer, the state classes, QueueManager, OrderGenerator
     Game/         DayManager, ScoreService, SaveSystem
