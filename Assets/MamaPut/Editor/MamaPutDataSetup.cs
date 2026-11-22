@@ -22,11 +22,11 @@ namespace MamaPut.EditorTools
             var beans = Dish("Beans", 300, false, "B", Hex("854F0B"), Hex("FAEEDA"));
 
             // Matches the progression table in the GDD.
-            Day(1, 5, 2000, 70f, true, 1, "Rice and stew only. Everybody pays exact.", rice, stew);
-            Day(2, 7, 3500, 60f, false, 2, "Jollof and dodo are out. People need change now.", rice, jollof, stew, dodo);
-            Day(3, 9, 5000, 55f, false, 3, "Meat on the menu. Hagglers about.", rice, jollof, stew, dodo, meat);
-            Day(4, 12, 7500, 50f, false, 3, "Rush hour. Keep an eye on the pots.", rice, jollof, stew, dodo, meat);
-            Day(5, 15, 10000, 45f, false, 3, "Lunch rush and beans. Nobody wants to wait.", rice, jollof, stew, dodo, meat, beans);
+            Day(1, 6, 2000, 70f, true, 1, "Rice and stew only. Everybody pays exact.", rice, stew);
+            Day(2, 8, 3500, 60f, false, 2, "Jollof and dodo are out. People need change now.", rice, jollof, stew, dodo);
+            Day(3, 10, 5000, 55f, false, 3, "Meat on the menu. Hagglers about.", rice, jollof, stew, dodo, meat);
+            Day(4, 13, 7500, 50f, false, 3, "Rush hour. Keep an eye on the pots.", rice, jollof, stew, dodo, meat);
+            Day(5, 16, 10000, 45f, false, 3, "Lunch rush and beans. Nobody wants to wait.", rice, jollof, stew, dodo, meat, beans);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

@@ -16,6 +16,8 @@ MonoBehaviour:
   pricePerPortion: 300
   portionPrefab: {fileID: 7551022108153492897, guid: da186929a8a81407da18c3f117a4f2a3, type: 3}
   servedWithTongs: 1
+  scoopSound: {fileID: 0}
+  serveSound: {fileID: 0}
   shortLabel: M
   chipColor: {r: 0.3882353, g: 0.21960784, b: 0.023529412, a: 1}
   chipTextColor: {r: 0.98039216, g: 0.93333334, b: 0.85490197, a: 1}

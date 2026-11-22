@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Day 1
   m_EditorClassIdentifier: Assembly-CSharp::MamaPut.DayConfig
   dayNumber: 1
-  customerCount: 5
+  customerCount: 6
   patienceSeconds: 70
   secondsBetweenCustomers: 8
   maxItemsPerOrder: 1
