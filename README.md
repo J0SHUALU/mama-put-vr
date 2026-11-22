@@ -91,4 +91,5 @@ The target is a steady 72 fps on Quest 2.
 - [KayKit Restaurant Bits](https://github.com/KayKit-Game-Assets/KayKit-Restaurant-Bits-1.0) and [City Builder Bits](https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0) (CC0)
 - Sound effects and music loop from [Kenney](https://kenney.nl/assets/category:Audio) (CC0)
 - Street and market ambience from [BigSoundBank](https://bigsoundbank.com) (CC0)
+- [Ojuju](https://fonts.google.com/specimen/Ojuju) font by the Ojuju Project Authors (SIL Open Font License)
 - The danfo, keke and okada models, portion meshes, generator hum, danfo horns and all the UI are my own
