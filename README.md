@@ -86,7 +86,8 @@ The target is a steady 72 fps on Quest 2.
 
 ## Assets
 
-- [Kenney Food Kit](https://kenney.nl/assets/food-kit) and [Mini Characters](https://kenney.nl/assets/mini-characters) (CC0)
+- [Kenney Food Kit](https://kenney.nl/assets/food-kit) (CC0)
+- Customers and their idle and walk animations from [Mixamo](https://www.mixamo.com), cut down to about 10k polygons and 512px textures each
 - [KayKit Restaurant Bits](https://github.com/KayKit-Game-Assets/KayKit-Restaurant-Bits-1.0) and [City Builder Bits](https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0) (CC0)
 - Sound effects and music loop from [Kenney](https://kenney.nl/assets/category:Audio) (CC0)
 - Street and market ambience from [BigSoundBank](https://bigsoundbank.com) (CC0)
