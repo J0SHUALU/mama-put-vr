@@ -17,7 +17,7 @@ MonoBehaviour:
   patienceSeconds: 60
   secondsBetweenCustomers: 7
   maxItemsPerOrder: 2
-  target: 3500
+  target: 2000
   exactMoneyOnly: 0
   menu:
   - {fileID: 11400000, guid: 22f1449d4ab5c46daae19e6af09d8e31, type: 2}
