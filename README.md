@@ -9,14 +9,18 @@ Game Design Document: [link]
 
 ## What's in it
 
-- Ladle and tongs that pick up portions from the pots and drop them onto plates when you tip them over
+- A main menu with the controls, plus Settings (snap or smooth turn, seated mode, volume) and Quit
+- Ladle and tongs that pick up portions from the pots and drop them onto plates when you tip them over. Dip a full spoon back in its pot to put the food back
 - A plate stack that always has a clean plate on top
-- Customers who queue up, call out their order, and walk off if you take too long
-- Payment in ₦100, ₦200, ₦500 and ₦1,000 notes, with change counted by hand from the change tray
-- Five days with a target each, a chalkboard summary and up to three stars per day
+- Customers who queue up along the pavement, show their order in a bubble ("2 Dodo"), carry the plate off in both hands, and walk off if you take too long
+- Payment in ₦100, ₦200, ₦500 and ₦1,000 notes, with change counted by hand from a cash table at your right hand
+- A till readout over the stall with today's takings and any change you still owe
+- Five days that get harder: one dish and exact money on Day 1, up to three dishes, change and less patience by Day 5
+- A results screen after every day with what went well, what to do better, and Retry, Continue or Main menu
 - A short tutorial (Aunty's voice note) that waits for you to actually do each step
-- Refill bowls on the back table for when a pot runs empty
-- Seated mode and snap turn
+- Refill bowls with name cards on the back table for when a pot runs empty
+- Pause from the menu button on the left controller or the Pause button by the till
+- Moving danfos, kekes and cars, a recorded Lagos bus stop in the background and food-specific scoop sounds
 
 ## Requirements
 
@@ -34,16 +38,26 @@ Game Design Document: [link]
 6. Open `Assets/MamaPut/Scenes/MamaPut.unity`.
 7. Plug in the headset, accept the USB debugging prompt inside it, and hit **Build And Run**.
 
-To try it without a headset, open the scene and press Play with the XR Device Simulator from the XR Interaction Toolkit samples in the scene.
+## Controls
+
+| Input | What it does |
+|---|---|
+| Left stick | Walk |
+| Right stick | Turn (smooth by default, snap in Settings) |
+| Trigger or grip | Grab. Point at something and pull to bring it to your hand. Let go to drop |
+| Tip the spoon | Serve the portion onto the plate under it |
+| A or X | Hand over: serves the plate you're holding, gives the change you're holding, or takes the customer's money if your hand is empty |
+| Point + trigger | Press menu buttons |
+| Menu button (left controller) | Pause |
 
 ## How to test it
 
 1. **Tutorial.** On first launch Aunty's voice note walks you through one full sale. It moves on only when you scoop, serve and get paid. Run **Mama Put > Reset Save Data** to see it again.
-2. **Scooping.** Grab the ladle, dip it in the rice pot (a portion appears in it), hold it over a plate and tip it. The portion should land on the plate. The tongs only work on meat and dodo. The ladle only works on rice, jollof, stew and beans.
-3. **Serving.** Read the order bubble, build the plate, and let go of it in front of the customer. A wrong plate gets a complaint and costs them patience. A right one moves them to paying.
-4. **Paying.** Grab the note from their hand and drop it in the cash box. If they're owed change, take notes from the change tray and let go of them in front of the customer. Exact change counts towards the third star.
+2. **Scooping.** Grab the ladle, dip it in the rice pot (a portion appears in it), hold it over a plate and tip it. The portion should land on the plate. Either utensil works on any dish. Dip a full spoon back into the same pot to put the food back.
+3. **Serving.** Read the order bubble, build the plate with exactly what it says, and press A while holding the plate (or let go of it in front of the customer). A wrong plate gets a complaint that says what was wrong and costs them patience. A right one moves them to paying.
+4. **Paying.** Press A with an empty hand to take their money, or drop their note in the cash tin. If the till says change is owed, grab notes from the change tray and press A. Exact change counts towards the third star.
 5. **Running out.** Keep serving until a pot is empty, then tip the matching refill bowl from the back table into it.
-6. **Ending a day.** After the last customer the chalkboard shows sales, walkouts, exact change and stars. Hit the target and Next unlocks the following day.
+6. **Ending a day.** After the last customer a results screen shows sales, walkouts, exact change, stars and tips. Continue opens the next day whether or not you hit the target. The target is what earns the extra star.
 
 ## Scene setup
 
@@ -56,11 +70,11 @@ Assets/MamaPut/
   Scripts/
     Interfaces/   IUtensil, IFoodSource, IPlate, IPaymentHandler, ICustomerState and the rest
     Core/         DishData, DayConfig, Order, PlateContents, GameEvents, ObjectPool, Naira
-    Interaction/  GrabbableItem, Utensil (Ladle, Tongs), FoodPot (pots), Plate, PlateStack, RefillBowl, ControllerHand
+    Interaction/  GrabbableItem, Utensil (Ladle, Tongs), FoodPot (pots), Plate, PlateStack, RefillBowl, ControllerHand, HandOverButton
     Money/        NairaNote, NoteDispenser, CustomerWallet, CashBox
-    Customers/    Customer, the state classes, QueueManager, OrderGenerator
-    Game/         DayManager, ScoreService, SaveSystem
-    UI/           OrderBubble, PotTag, SummaryBoard, Tutorial, ComfortSettings
+    Customers/    Customer, the state classes, QueueManager, OrderGenerator, CustomerPlateHold
+    Game/         DayManager, ScoreService, SaveSystem, VehicleDrive
+    UI/           MainMenu, SettingsPanel, PauseMenu, ResultsPanel, TillCounter, OrderBubble, PotTag, SummaryBoard, Tutorial, ComfortSettings
     Feedback/     FeedbackAudio, ItemSounds, Footsteps, AmbientOneShots
   Editor/         Menu items for default data, Quest settings and static batching
   Data/           Dish and Day assets
