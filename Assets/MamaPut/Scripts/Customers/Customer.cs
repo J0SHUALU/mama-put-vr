@@ -11,6 +11,8 @@ namespace MamaPut
         [SerializeField] Animator animator;
 
         static readonly int SpeedHash = Animator.StringToHash("Speed");
+        static readonly int IdleVariantHash = Animator.StringToHash("IdleVariant");
+        const int IdleVariants = 3;
 
         ICustomerState state;
         Vector3 target;
@@ -45,6 +47,13 @@ namespace MamaPut
             Queue = queue;
             Till = till;
             ExitPoint = exit;
+            if (animator != null)
+            {
+                // Different idle, start frame and pace for each visit so the line looks like people.
+                animator.SetFloat(IdleVariantHash, Random.Range(0, IdleVariants));
+                animator.speed = Random.Range(0.9f, 1.1f);
+                animator.Play("Idle", 0, Random.value);
+            }
             SetState(new WaitingState());
         }
 
