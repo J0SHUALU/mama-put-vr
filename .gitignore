@@ -38,3 +38,7 @@ crashlytics-build.properties
 Thumbs.db
 
 *.slnx
+
+.utmp/
+*_BurstDebugInformation_DoNotShip/
+Assets/Resources.meta
