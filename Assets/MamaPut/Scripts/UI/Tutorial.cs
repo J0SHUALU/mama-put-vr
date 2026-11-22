@@ -12,6 +12,8 @@ namespace MamaPut
             [TextArea] public string text;
             public string hint;
             public Transform pointAt;
+            [Tooltip("Short tag floating over the thing, e.g. \"Grab this\".")]
+            public string pointLabel;
             public AudioClip voice;
         }
 
@@ -19,12 +21,14 @@ namespace MamaPut
         [SerializeField] TMP_Text hintLabel;
         [SerializeField] TMP_Text counter;
         [SerializeField] Transform pointerRing;
+        [SerializeField] TMP_Text pointerLabel;
         [SerializeField] AudioSource voiceSource;
         [SerializeField] Step[] steps;
 
         int index = -1;
         bool scooped;
         Vector3 ringScale = Vector3.one;
+        Transform view;
 
         void Start()
         {
@@ -55,6 +59,19 @@ namespace MamaPut
                 pointerRing.position = step.pointAt.position + Vector3.up * (0.18f + bob);
                 float pulse = 1f + Mathf.Sin(Time.time * 6f) * 0.08f;
                 pointerRing.localScale = ringScale * pulse;
+
+                if (pointerLabel != null)
+                {
+                    if (view == null) view = FindView();
+                    var tag = pointerLabel.canvas.transform;
+                    tag.position = step.pointAt.position + Vector3.up * (0.27f + bob);
+                    if (view != null)
+                    {
+                        var away = tag.position - view.position;
+                        away.y = 0f;
+                        if (away.sqrMagnitude > 0.0001f) tag.rotation = Quaternion.LookRotation(away);
+                    }
+                }
             }
 
             // Scooping doesn't raise an event, so check the utensils until it happens.
@@ -79,6 +96,11 @@ namespace MamaPut
             hintLabel.text = step.hint;
             counter.text = $"{index + 1} / {steps.Length}";
             if (pointerRing != null) pointerRing.gameObject.SetActive(step.pointAt != null);
+            if (pointerLabel != null)
+            {
+                pointerLabel.text = string.IsNullOrEmpty(step.pointLabel) ? "Grab this" : step.pointLabel;
+                pointerLabel.canvas.gameObject.SetActive(step.pointAt != null);
+            }
             if (voiceSource != null && step.voice != null)
             {
                 voiceSource.clip = step.voice;
@@ -89,10 +111,19 @@ namespace MamaPut
 
         public void Skip() => Finish();
 
+        // The rig's camera isn't tagged MainCamera, so fall back to any active camera.
+        static Transform FindView()
+        {
+            if (Camera.main != null) return Camera.main.transform;
+            var cam = FindAnyObjectByType<Camera>();
+            return cam != null ? cam.transform : null;
+        }
+
         void Finish()
         {
             SaveSystem.TutorialDone = true;
             if (pointerRing != null) pointerRing.gameObject.SetActive(false);
+            if (pointerLabel != null) pointerLabel.canvas.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
     }

@@ -12,6 +12,12 @@ namespace MamaPut
         [Tooltip("Ladle dishes are scooped, tongs dishes are picked (meat, dodo).")]
         public bool servedWithTongs;
 
+        [Header("Sound")]
+        [Tooltip("Played when this dish is scooped from its pot. Falls back to the utensil's own sounds.")]
+        public AudioClip scoopSound;
+        [Tooltip("Played when this dish lands on a plate.")]
+        public AudioClip serveSound;
+
         [Header("Order chip")]
         public string shortLabel = "R";
         public Color chipColor = Color.white;

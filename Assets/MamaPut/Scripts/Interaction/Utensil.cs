@@ -25,18 +25,38 @@ namespace MamaPut
             loadedDish = source.Dish;
             loadedVisual = PortionPool.Get(loadedDish, loadPoint);
             Pulse(0.4f, 0.08f);
-            PlayRandom(scoopClips);
+            if (!PlayDishSound(loadedDish.scoopSound)) PlayRandom(scoopClips);
             return true;
         }
 
         public bool Drop(IPlate target)
         {
             if (!IsLoaded || !target.AddPortion(loadedDish)) return false;
+            bool played = PlayDishSound(loadedDish.serveSound);
             PortionPool.Release(loadedVisual);
             loadedVisual = null;
             loadedDish = null;
             Pulse(0.3f, 0.05f);
+            if (!played) PlayRandom(dropClips);
+            return true;
+        }
+
+        public void PutBack(IFoodSource source)
+        {
+            if (!IsLoaded) return;
+            source.Refill(1);
+            PortionPool.Release(loadedVisual);
+            loadedVisual = null;
+            loadedDish = null;
+            Pulse(0.2f, 0.05f);
             PlayRandom(dropClips);
+        }
+
+        bool PlayDishSound(AudioClip clip)
+        {
+            if (sfx == null || clip == null) return false;
+            sfx.pitch = Random.Range(0.94f, 1.06f);
+            sfx.PlayOneShot(clip);
             return true;
         }
 
@@ -59,7 +79,9 @@ namespace MamaPut
             var source = other.GetComponentInParent<IFoodSource>();
             if (source != null)
             {
-                Scoop(source);
+                // Dipping a loaded spoon back into the same pot puts the food back.
+                if (IsLoaded) { if (source.Dish == loadedDish) PutBack(source); }
+                else Scoop(source);
                 return;
             }
             var plate = other.GetComponentInParent<IPlate>();

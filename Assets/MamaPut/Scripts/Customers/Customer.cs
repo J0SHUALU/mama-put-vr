@@ -125,7 +125,9 @@ namespace MamaPut
             else
             {
                 LosePatience(5f);
-                bubble.Complain("Ah ah, na wetin I order be this?");
+                // Say what was wrong, so the player can fix the plate instead of guessing.
+                bubble.Complain($"I want {CurrentOrder}. This one na {plate.Contents}!");
+                Debug.Log($"Wrong plate: ordered {CurrentOrder}, got {plate.Contents}");
                 GameEvents.RaiseOrderServed(this, false);
             }
         }
@@ -138,6 +140,8 @@ namespace MamaPut
         }
 
         public bool IsOwnNote(NairaNote note) => notesOut.Contains(note);
+        public NairaNote[] NotesOut => notesOut.ToArray();
+        public bool IsOrdering => state is OrderingState;
 
         public int PaidAmount { get; private set; }
 

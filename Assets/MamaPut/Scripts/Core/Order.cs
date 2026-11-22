@@ -16,7 +16,7 @@ namespace MamaPut
             Items[dish] = count + portions;
         }
 
-        // Exact match only. Extra food is still wrong, it costs Aunty money.
+        // Exact match: the bubble spells out how many of each ("2 Dodo"), and extra food costs Aunty money.
         public bool IsMatchedBy(PlateContents plate)
         {
             if (plate.TotalPortions != Items.Values.Sum()) return false;

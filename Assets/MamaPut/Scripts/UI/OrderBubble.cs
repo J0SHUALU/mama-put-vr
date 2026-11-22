@@ -33,7 +33,7 @@ namespace MamaPut
         [SerializeField] Color complaintColor = new Color32(0xD8, 0x5A, 0x30, 0xFF);
         [SerializeField] Color trimColor = new Color32(0xEF, 0x9F, 0x27, 0xFF);
         [SerializeField] Color lowPatienceColor = new Color32(0xE2, 0x4B, 0x4A, 0xFF);
-        [SerializeField] float complaintSeconds = 2.5f;
+        [SerializeField] float complaintSeconds = 4f;
 
         static readonly int[] Notes = { 1000, 500, 200, 100 };
 
@@ -74,14 +74,15 @@ namespace MamaPut
             foreach (var item in order.Items)
             {
                 if (i >= chips.Length) break;
-                chips[i].gameObject.SetActive(true);
+                chips[i].transform.parent.gameObject.SetActive(true); // the whole row: ring, dot and name
                 chips[i].color = item.Key.chipColor;
                 chipLabels[i].color = item.Key.chipTextColor;
-                chipLabels[i].text = item.Value > 1 ? "x" + item.Value : item.Key.shortLabel;
-                chipNames[i].text = item.Key.displayName;
+                chipLabels[i].text = item.Key.shortLabel;
+                // Spell the amount out in the name, e.g. "2 Dodo", so it reads at a glance.
+                chipNames[i].text = item.Value > 1 ? $"{item.Value} {item.Key.displayName}" : item.Key.displayName;
                 i++;
             }
-            for (; i < chips.Length; i++) chips[i].gameObject.SetActive(false);
+            for (; i < chips.Length; i++) chips[i].transform.parent.gameObject.SetActive(false);
             Switch(orderGroup);
         }
 

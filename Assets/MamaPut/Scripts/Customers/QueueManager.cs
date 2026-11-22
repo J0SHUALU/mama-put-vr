@@ -13,6 +13,7 @@ namespace MamaPut
 
         public Vector3 StallPoint => stallPoint.position;
         public int Count => line.Count;
+        public Customer Front => line.Count > 0 ? line[0] : null;
 
         public void Join(Customer c)
         {

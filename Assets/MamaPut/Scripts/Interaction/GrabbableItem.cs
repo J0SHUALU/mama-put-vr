@@ -48,6 +48,8 @@ namespace MamaPut
         }
 
         // Force-drop, e.g. when a customer takes the plate out of your hand.
+        public void LetGo() => ForceRelease();
+
         protected void ForceRelease()
         {
             if (grab.isSelected && grab.interactionManager != null)

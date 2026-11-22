@@ -44,7 +44,9 @@ namespace MamaPut
 
         public NairaNote Spawn(int value, Transform hand, int index)
         {
-            var offset = hand.right * (0.04f * index);
+            // Side by side and stepped up a little, so every note's value is readable and none overlap.
+            int k = index - 1;
+            var offset = hand.right * (0.09f * k) + Vector3.up * (0.03f * k);
             var note = pools[value].Get(hand.position + offset, hand.rotation);
             note.ReturnToPool = pools[value].Release;
             note.HoldStill();

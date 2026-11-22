@@ -21,5 +21,11 @@ namespace MamaPut
         public int Price() => portions.Sum(p => p.Key.pricePerPortion * p.Value);
 
         public void Clear() => portions.Clear();
+
+        public override string ToString()
+        {
+            if (portions.Count == 0) return "nothing";
+            return string.Join(", ", portions.Select(p => p.Value > 1 ? $"{p.Value} {p.Key.displayName}" : p.Key.displayName));
+        }
     }
 }
