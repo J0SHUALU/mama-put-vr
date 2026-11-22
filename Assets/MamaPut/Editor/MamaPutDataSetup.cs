@@ -18,15 +18,15 @@ namespace MamaPut.EditorTools
             var jollof = Dish("Jollof", 400, false, "J", Hex("D85A30"), Hex("FAECE7"));
             var stew = Dish("Stew", 100, false, "S", Hex("A32D2D"), Hex("FCEBEB"));
             var dodo = Dish("Dodo", 200, true, "D", Hex("EF9F27"), Hex("412402"));
-            var meat = Dish("Meat", 300, true, "M", Hex("633806"), Hex("FAEEDA"));
+            var egusi = Dish("Egusi", 400, false, "E", Hex("B8862B"), Hex("2C2C2A"));
             var beans = Dish("Beans", 300, false, "B", Hex("854F0B"), Hex("FAEEDA"));
 
             // Matches the progression table in the GDD.
             Day(1, 6, 700, 70f, true, 1, "Rice and stew only. Everybody pays exact.", rice, stew);
             Day(2, 8, 2000, 60f, false, 2, "Jollof and dodo are out. People need change now.", rice, jollof, stew, dodo);
-            Day(3, 10, 3800, 55f, false, 3, "Meat on the menu. Orders get bigger.", rice, jollof, stew, dodo, meat);
-            Day(4, 13, 5000, 50f, false, 3, "Rush hour. Keep an eye on the pots.", rice, jollof, stew, dodo, meat);
-            Day(5, 16, 6400, 45f, false, 3, "Lunch rush and beans. Nobody wants to wait.", rice, jollof, stew, dodo, meat, beans);
+            Day(3, 10, 3800, 55f, false, 3, "Egusi on the menu. Orders get bigger.", rice, jollof, stew, dodo, egusi);
+            Day(4, 13, 5000, 50f, false, 3, "Rush hour. Keep an eye on the pots.", rice, jollof, stew, dodo, egusi);
+            Day(5, 16, 6400, 45f, false, 3, "Lunch rush and beans. Nobody wants to wait.", rice, jollof, stew, dodo, egusi, beans);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

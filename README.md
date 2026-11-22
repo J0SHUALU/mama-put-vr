@@ -1,6 +1,6 @@
 # Mama Put VR
 
-You're running your aunty's Mama Put spot under a Lagos bridge for a few days. Scoop rice and stew, add the dodo and meat, hand the plate over, and count the right change in Naira before the queue gets vexed.
+You're running your aunty's Mama Put spot under a Lagos bridge for a few days. Scoop rice, stew, beans and egusi, add the dodo, hand the plate over, and count the right change in Naira before the queue gets vexed.
 
 Built for Meta Quest 2 in Unity 6 with the XR Interaction Toolkit.
 
@@ -10,14 +10,15 @@ Game Design Document: [link]
 ## What's in it
 
 - A main menu with the controls, plus Settings (snap or smooth turn, seated mode, volume) and Quit
-- Ladle and tongs that pick up portions from the pots and drop them onto plates when you tip them over. Dip a full spoon back in its pot to put the food back
-- A plate stack that always has a clean plate on top
+- A steel ladle and tongs that pick up portions from the pots and drop them onto plates when you tip them over. Dip a full spoon back in its pot to put the food back
+- Six dishes (Jollof, White Rice, Beans, Stew, Egusi and Dodo) heaped in aluminium pots, with dodo in an enamel bowl. Every portion and pot is textured from a real photo of the dish
+- A stack of white enamel plates with a blue rim, always with a clean one on top. The ladle, tongs and plates sit between you and the pots
 - Customers who queue up along the pavement, show their order in a bubble ("2 Dodo"), carry the plate off in both hands, and walk off if you take too long
-- Payment in ₦100, ₦200, ₦500 and ₦1,000 notes, with change counted by hand from a cash table at your right hand
+- Payment in real ₦100, ₦200, ₦500 and ₦1,000 note designs, with change counted by hand from a cash table at your right hand
 - A till readout over the stall with today's takings and any change you still owe
 - Five days that get harder: one dish and exact money on Day 1, up to three dishes, change and less patience by Day 5
-- A results screen after every day with what went well, what to do better, and Retry, Continue or Main menu
-- A short tutorial (Aunty's voice note) that waits for you to actually do each step
+- A results screen after every day with your stats, tips when something went wrong (or "Well done" when nothing did), and Retry, Continue or Main menu
+- A short tutorial card from Aunty Funmi, just over the counter, that waits for you to actually do each step. It runs each time you press Play and has a Skip button
 - Refill bowls with name cards on the back table for when a pot runs empty
 - Pause from the menu button on the left controller or the Pause button by the till
 - Moving danfos, kekes and cars, a recorded Lagos bus stop in the background and food-specific scoop sounds
@@ -52,7 +53,7 @@ Game Design Document: [link]
 
 ## How to test it
 
-1. **Tutorial.** On first launch Aunty's voice note walks you through one full sale. It moves on only when you scoop, serve and get paid. Run **Mama Put > Reset Save Data** to see it again.
+1. **Tutorial.** After pressing Play, Aunty's card over the counter walks you through one full sale. It moves on only when you scoop, serve and get paid. Press Skip to go straight to the day.
 2. **Scooping.** Grab the ladle, dip it in the rice pot (a portion appears in it), hold it over a plate and tip it. The portion should land on the plate. Either utensil works on any dish. Dip a full spoon back into the same pot to put the food back.
 3. **Serving.** Read the order bubble, build the plate with exactly what it says, and press A while holding the plate (or let go of it in front of the customer). A wrong plate gets a complaint that says what was wrong and costs them patience. A right one moves them to paying.
 4. **Paying.** Press A with an empty hand to take their money, or drop their note in the cash tin. If the till says change is owed, grab notes from the change tray and press A. Exact change counts towards the third star.
@@ -106,6 +107,8 @@ The target is a steady 72 fps on Quest 2.
 - Sound effects and music loop from [Kenney](https://kenney.nl/assets/category:Audio) (CC0)
 - Street and market ambience from [BigSoundBank](https://bigsoundbank.com) (CC0)
 - Lagos bus stop ambience ("Ambient Saboyaba Busstop Lagos Nigeria") by freesound_community on [Pixabay](https://pixabay.com/sound-effects/) (Pixabay Content License)
-- Rice and stew scoop sounds cut from "Coffeebean Scoop" and "Soup Dripping Into Pot" by freesound_community on [Pixabay](https://pixabay.com/sound-effects/) (Pixabay Content License)
+- Scoop sounds cut from "Coffeebean Scoop" and "Soup Dripping Into Pot" by freesound_community on [Pixabay](https://pixabay.com/sound-effects/) (Pixabay Content License). The grainy one is used for the rice dishes and dodo, the wet one for stew, beans and egusi
+- Food textures cropped from reference photos of each dish (the white rice photo is from [Vecteezy](https://www.vecteezy.com))
 - [Ojuju](https://fonts.google.com/specimen/Ojuju) font by the Ojuju Project Authors (SIL Open Font License)
-- The danfo, keke and okada models, portion meshes, generator hum, danfo horns and all the UI are my own
+- Naira note images from the [Central Bank of Nigeria currency gallery](https://www.cbn.gov.ng/currency/gallery/) (official specimen images, kept with a faint SPECIMEN mark)
+- The danfo, keke and okada models, food meshes, pots, enamel bowl and plates, ladle, tongs, generator hum, danfo horns and all the UI are my own

@@ -12,6 +12,7 @@ namespace MamaPut
         [SerializeField] TMP_Text title;
         [SerializeField] TMP_Text stats;
         [SerializeField] TMP_Text tips;
+        [SerializeField] TMP_Text tipsTitle;
         [SerializeField] GameObject continueButton;
         [SerializeField] SummaryBoard board;
         [SerializeField] DayManager dayManager;
@@ -42,7 +43,9 @@ namespace MamaPut
             int wrongChange = s.customersServed - s.exactChangeCount;
             if (wrongChange > 0) sb.AppendLine($"Count your change: {wrongChange} got the wrong amount back.");
             if (!s.TargetReached) sb.AppendLine($"You were {Naira.Format(s.target - s.sales)} short of the target.");
-            if (sb.Length == 0) sb.Append("Clean day. Nobody waited too long and every change was right.");
+            bool clean = sb.Length == 0;
+            if (clean) sb.Append("Clean day. Nobody waited too long and every change was right.");
+            if (tipsTitle != null) tipsTitle.text = clean ? "Well done" : "Do better";
             tips.text = sb.ToString().TrimEnd();
 
             bool canContinue = dayManager != null && dayManager.HasNextDay;

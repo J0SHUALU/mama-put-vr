@@ -9,7 +9,7 @@ namespace MamaPut
         [Tooltip("Price in Naira for one portion.")]
         public int pricePerPortion = 300;
         public GameObject portionPrefab;
-        [Tooltip("Ladle dishes are scooped, tongs dishes are picked (meat, dodo).")]
+        [Tooltip("Ladle dishes are scooped, tongs dishes are picked (dodo).")]
         public bool servedWithTongs;
 
         [Header("Sound")]

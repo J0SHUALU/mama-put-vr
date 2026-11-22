@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649b72d34f7094c89a23e0a29a77b5a8, type: 3}
+  m_Name: Egusi
+  m_EditorClassIdentifier: Assembly-CSharp::MamaPut.DishData
+  displayName: Egusi
+  pricePerPortion: 400
+  portionPrefab: {fileID: 2279273428942208328, guid: 582ad0108eec84193a3e9f874a612fe2, type: 3}
+  servedWithTongs: 0
+  scoopSound: {fileID: 8300000, guid: 756854facf1bd4e43a2583029ee5579d, type: 3}
+  serveSound: {fileID: 8300000, guid: 2cb2a6512aebb4af493e128c490b490a, type: 3}
+  shortLabel: E
+  chipColor: {r: 0.72156864, g: 0.5254902, b: 0.16862746, a: 1}
+  chipTextColor: {r: 0.17254902, g: 0.17254902, b: 0.16470589, a: 1}

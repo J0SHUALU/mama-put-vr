@@ -34,11 +34,7 @@ namespace MamaPut
         {
             // The ring lives on a world-space canvas at a tiny scale; pulse around that, not around 1.
             if (pointerRing != null) ringScale = pointerRing.localScale;
-            if (SaveSystem.TutorialDone)
-            {
-                Finish();
-                return;
-            }
+            // Runs every time you start from the main menu; Skip is right there if you already know it.
             GameEvents.OrderServed += OnServed;
             GameEvents.PaymentDone += OnPaid;
             Next();

@@ -5,7 +5,7 @@ namespace MamaPut
 {
     public class OrderGenerator : MonoBehaviour, IOrderGenerator
     {
-        [Tooltip("Max portions of a tongs dish (meat, dodo) in one order.")]
+        [Tooltip("Max portions of a tongs dish (dodo) in one order.")]
         [SerializeField] int maxTongsPortions = 2;
 
         public Order CreateOrder(DayConfig day)
@@ -15,7 +15,7 @@ namespace MamaPut
             var tongs = new List<DishData>();
             foreach (var d in day.menu) (d.servedWithTongs ? tongs : ladle).Add(d);
 
-            // Every plate starts with something from a pot. Nobody orders just meat.
+            // Every plate starts with something from a pot. Nobody orders just dodo.
             if (ladle.Count > 0) order.Add(ladle[Random.Range(0, ladle.Count)]);
 
             int extras = Random.Range(0, day.maxItemsPerOrder);
