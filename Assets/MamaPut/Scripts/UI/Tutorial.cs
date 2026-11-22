@@ -24,9 +24,12 @@ namespace MamaPut
 
         int index = -1;
         bool scooped;
+        Vector3 ringScale = Vector3.one;
 
         void Start()
         {
+            // The ring lives on a world-space canvas at a tiny scale; pulse around that, not around 1.
+            if (pointerRing != null) ringScale = pointerRing.localScale;
             if (SaveSystem.TutorialDone)
             {
                 Finish();
@@ -51,7 +54,7 @@ namespace MamaPut
                 float bob = Mathf.Sin(Time.time * 4f) * 0.02f;
                 pointerRing.position = step.pointAt.position + Vector3.up * (0.18f + bob);
                 float pulse = 1f + Mathf.Sin(Time.time * 6f) * 0.08f;
-                pointerRing.localScale = Vector3.one * pulse;
+                pointerRing.localScale = ringScale * pulse;
             }
 
             // Scooping doesn't raise an event, so check the utensils until it happens.

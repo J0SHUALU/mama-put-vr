@@ -10,7 +10,7 @@ namespace MamaPut
         void OnTriggerStay(Collider other)
         {
             var plate = other.GetComponentInParent<Plate>();
-            if (plate != null && !plate.IsHeld && plate.transform.parent != customer.Hand)
+            if (plate != null && !plate.IsHeld && !plate.HandedOver)
             {
                 customer.TryServe(plate);
                 return;

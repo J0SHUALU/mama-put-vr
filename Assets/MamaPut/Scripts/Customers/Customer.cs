@@ -18,6 +18,8 @@ namespace MamaPut
         Vector3 target;
         readonly List<NairaNote> notesOut = new List<NairaNote>();
         Plate plateHeld;
+        Transform carry;
+        CustomerPlateHold hold;
 
         public Order CurrentOrder { get; private set; }
         public float Patience { get; private set; }
@@ -38,6 +40,19 @@ namespace MamaPut
         public Vector3 ExitPoint { get; private set; }
         public bool WantsChange { get; private set; }
         public System.Action<Customer> ReturnToPool;
+
+        void Awake()
+        {
+            carry = new GameObject("Carry").transform;
+            carry.SetParent(transform, false);
+            carry.localPosition = new Vector3(0f, 1f, 0.28f);
+            if (animator != null)
+            {
+                hold = animator.GetComponent<CustomerPlateHold>();
+                if (hold == null) hold = animator.gameObject.AddComponent<CustomerPlateHold>();
+                hold.Setup(transform, carry);
+            }
+        }
 
         public void Begin(Order order, float patience, bool payExact, QueueManager queue, IPaymentHandler till, Vector3 exit)
         {
@@ -101,7 +116,8 @@ namespace MamaPut
             if (CurrentOrder.IsMatchedBy(plate.Contents))
             {
                 plateHeld = plate;
-                plate.HandTo(hand);
+                plate.HandTo(carry);
+                if (hold != null) hold.Hold(plate.transform);
                 Served = true;
                 GameEvents.RaiseOrderServed(this, true);
                 SetState(new PayingState());
@@ -180,6 +196,7 @@ namespace MamaPut
         {
             if (plateHeld != null) plateHeld.Recycle();
             plateHeld = null;
+            if (hold != null) hold.Hold(null);
             state = null;
             bubble.Hide();
         }

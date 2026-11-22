@@ -16,6 +16,7 @@ namespace MamaPut
 
         public PlateContents Contents => contents;
         public int Price() => contents.Price();
+        public bool HandedOver => grab != null && !grab.enabled;
 
         protected override void Awake()
         {
@@ -43,10 +44,22 @@ namespace MamaPut
         {
             ForceRelease();
             grab.enabled = false;
-            if (body != null) body.isKinematic = true;
+            if (body != null)
+            {
+                body.isKinematic = true;
+                // An interpolated body keeps snapping back to its last physics pose, so the plate
+                // (and the hands on it) trails behind a walking customer. Let the parent drive it.
+                body.interpolation = RigidbodyInterpolation.None;
+                body.detectCollisions = false;
+            }
             transform.SetParent(hand, false);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
+            if (body != null)
+            {
+                body.position = transform.position;
+                body.rotation = transform.rotation;
+            }
         }
 
         public void Recycle()
@@ -58,7 +71,12 @@ namespace MamaPut
         public void OnSpawn()
         {
             grab.enabled = true;
-            if (body != null) body.isKinematic = false;
+            if (body != null)
+            {
+                body.isKinematic = false;
+                body.interpolation = RigidbodyInterpolation.Interpolate;
+                body.detectCollisions = true;
+            }
         }
 
         public void OnDespawn()
