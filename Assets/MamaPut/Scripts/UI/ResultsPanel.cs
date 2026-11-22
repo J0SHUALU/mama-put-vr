@@ -45,7 +45,7 @@ namespace MamaPut
             if (sb.Length == 0) sb.Append("Clean day. Nobody waited too long and every change was right.");
             tips.text = sb.ToString().TrimEnd();
 
-            bool canContinue = s.TargetReached && dayManager != null && dayManager.HasNextDay;
+            bool canContinue = dayManager != null && dayManager.HasNextDay;
             if (continueButton != null) continueButton.SetActive(canContinue);
 
             Place();

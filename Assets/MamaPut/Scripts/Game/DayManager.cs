@@ -114,7 +114,8 @@ namespace MamaPut
             running = false;
             var summary = score.GetSummary();
             SaveSystem.SaveStars(summary.dayNumber, summary.stars);
-            if (summary.TargetReached && SaveSystem.UnlockedDay <= summary.dayNumber)
+            // Finishing a day always opens the next one. Hitting the target is what earns the extra star.
+            if (SaveSystem.UnlockedDay <= summary.dayNumber)
                 SaveSystem.UnlockedDay = Mathf.Min(summary.dayNumber + 1, days.Length);
             GameEvents.RaiseDayEnded(summary);
         }

@@ -79,7 +79,7 @@ namespace MamaPut
             exactLabel.text = $"{s.exactChangeCount} exact";
             quoteLabel.text = Quotes[Mathf.Clamp(s.stars, 0, Quotes.Length - 1)];
             Show(resultGroup);
-            SetButtons(false, s.TargetReached && dayManager.HasNextDay, true);
+            SetButtons(false, dayManager.HasNextDay, true);
         }
 
         public void PressStart() => Begin(dayManager.StartDay);
