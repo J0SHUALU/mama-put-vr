@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Floating till readout over the counter: today's takings, plus the change still owed.
     public class TillCounter : MonoBehaviour
     {
         [SerializeField] TMP_Text tillLabel;
@@ -36,8 +35,13 @@ namespace MamaPut
 
         void OnDayEnded(DaySummary s) => newDay = true;
 
+        float nextCheck;
+
         void Update()
         {
+            nextCheck -= Time.unscaledDeltaTime;
+            if (nextCheck > 0f) return;
+            nextCheck = 0.25f;
             int owed = 0;
             foreach (var c in FindObjectsByType<Customer>())
                 if (c.isActiveAndEnabled && c.ChangeOwed > c.ChangeReceived && !c.WalkedOut)

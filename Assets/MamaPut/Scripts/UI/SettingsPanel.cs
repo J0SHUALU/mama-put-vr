@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Settings shared by the main menu and the pause menu. Opens where the menu that called it was.
     public class SettingsPanel : MonoBehaviour
     {
         [SerializeField] ComfortSettings comfort;

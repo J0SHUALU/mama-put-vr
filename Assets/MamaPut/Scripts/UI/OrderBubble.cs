@@ -54,7 +54,6 @@ namespace MamaPut
             if (cam == null && Camera.main != null) cam = Camera.main.transform;
             if (cam != null)
             {
-                // Y axis only, so the bubble doesn't tip over when you look down at the pots.
                 var dir = transform.position - cam.position;
                 dir.y = 0f;
                 if (dir.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(dir);
@@ -62,7 +61,6 @@ namespace MamaPut
 
             if (complaintUntil <= 0f) return;
             float left = complaintUntil - Time.time;
-            // One quick shake when the complaint lands.
             float shake = left > complaintSeconds - 0.3f ? Mathf.Sin(Time.time * 60f) * 0.01f : 0f;
             root.transform.localPosition = restPosition + new Vector3(shake, 0f, 0f);
             if (left <= 0f) EndComplaint();
@@ -74,11 +72,10 @@ namespace MamaPut
             foreach (var item in order.Items)
             {
                 if (i >= chips.Length) break;
-                chips[i].transform.parent.gameObject.SetActive(true); // the whole row: ring, dot and name
+                chips[i].transform.parent.gameObject.SetActive(true);
                 chips[i].color = item.Key.chipColor;
                 chipLabels[i].color = item.Key.chipTextColor;
                 chipLabels[i].text = item.Key.shortLabel;
-                // Spell the amount out in the name, e.g. "2 Dodo", so it reads at a glance.
                 chipNames[i].text = item.Value > 1 ? $"{item.Value} {item.Key.displayName}" : item.Key.displayName;
                 i++;
             }

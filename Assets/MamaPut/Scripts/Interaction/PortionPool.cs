@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Portions are swapped between ladle, tongs and plates all the time, so they are never destroyed.
     public static class PortionPool
     {
         static readonly Dictionary<GameObject, Stack<GameObject>> free = new Dictionary<GameObject, Stack<GameObject>>();

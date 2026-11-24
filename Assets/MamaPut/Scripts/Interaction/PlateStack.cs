@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Always keeps one clean plate on top of the stack.
     public class PlateStack : MonoBehaviour
     {
         [SerializeField] Plate platePrefab;

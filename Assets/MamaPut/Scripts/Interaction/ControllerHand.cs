@@ -4,8 +4,6 @@ using UnityEngine.XR;
 
 namespace MamaPut
 {
-    // Shows a hand where the controller model would be and curls the fingers
-    // with grip and trigger, so the player sees their hands instead of plastic.
     public class ControllerHand : MonoBehaviour
     {
         [SerializeField] bool leftHand = true;
@@ -18,7 +16,7 @@ namespace MamaPut
         {
             public Transform bone;
             public Quaternion rest;
-            public Vector3 axis;   // in the parent's space
+            public Vector3 axis;
             public float maxAngle;
             public bool index;
             public bool thumb;
@@ -36,7 +34,6 @@ namespace MamaPut
             BuildJoints(bones, palm);
         }
 
-        // Also called from the editor so the hand sits right in the scene before you press Play.
         public void AlignInEditor()
         {
             var bones = FindBones();
@@ -60,8 +57,6 @@ namespace MamaPut
             var wrist = bones["Wrist"];
             var midProx = bones["MiddleProximal"];
 
-            // Work out which way the fingers point and which way the palm faces from the rest pose,
-            // then turn the model so it sits round the controller grip.
             Vector3 along = (midProx.position - wrist.position).normalized;
             Vector3 palm = Vector3.ProjectOnPlane(bones["MiddleTip"].position - midProx.position, along).normalized;
             float side = leftHand ? 1f : -1f;
@@ -119,7 +114,6 @@ namespace MamaPut
         {
             foreach (var j in joints)
             {
-                // Resting fingers sit a little curled round the grip.
                 float amount = j.index ? Mathf.Lerp(0.15f, 1f, t) : j.thumb ? Mathf.Lerp(0.2f, 0.8f, g) : Mathf.Lerp(0.25f, 1f, g);
                 j.bone.localRotation = Quaternion.AngleAxis(j.maxAngle * amount, j.axis) * j.rest;
             }

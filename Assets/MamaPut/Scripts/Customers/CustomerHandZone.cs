@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Trigger in front of the customer. Plates and change get handed over by letting go inside it.
     public class CustomerHandZone : MonoBehaviour
     {
         [SerializeField] Customer customer;

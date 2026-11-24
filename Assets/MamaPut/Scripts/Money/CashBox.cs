@@ -30,7 +30,6 @@ namespace MamaPut
             }
         }
 
-        // Only count notes the player let go of inside the box, not ones they're waving around.
         void OnTriggerStay(Collider other)
         {
             var note = other.GetComponentInParent<NairaNote>();

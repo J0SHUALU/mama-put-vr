@@ -21,7 +21,6 @@ namespace MamaPut.EditorTools
             var egusi = Dish("Egusi", 400, false, "E", Hex("B8862B"), Hex("2C2C2A"));
             var beans = Dish("Beans", 300, false, "B", Hex("854F0B"), Hex("FAEEDA"));
 
-            // Matches the progression table in the GDD.
             Day(1, 6, 700, 70f, true, 1, "Rice and stew only. Everybody pays exact.", rice, stew);
             Day(2, 8, 2000, 60f, false, 2, "Jollof and dodo are out. People need change now.", rice, jollof, stew, dodo);
             Day(3, 10, 3800, 55f, false, 3, "Egusi on the menu. Orders get bigger.", rice, jollof, stew, dodo, egusi);

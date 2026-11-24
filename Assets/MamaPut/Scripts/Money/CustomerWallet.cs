@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Picks which notes a customer pays with and spawns them in their hand.
     public class CustomerWallet : MonoBehaviour
     {
         [SerializeField] NairaNote[] notePrefabs;
@@ -18,8 +17,6 @@ namespace MamaPut
             foreach (var prefab in notePrefabs) pools[prefab.Value] = new ObjectPool<NairaNote>(prefab, transform, 2);
         }
 
-        // Exact money: the fewest notes that add up to the total.
-        // Otherwise: the smallest single note that covers it, so the player has to give change.
         public List<int> ChooseNotes(int total, bool exact)
         {
             var values = new List<int>(pools.Keys);
@@ -36,15 +33,12 @@ namespace MamaPut
             for (int i = values.Count - 1; i >= 0 && left > 0; i--)
                 while (left >= values[i]) { result.Add(values[i]); left -= values[i]; }
 
-            // Round up with the smallest note when the total doesn't break down evenly,
-            // or when the order is bigger than our biggest note and change is still wanted.
             if (left > 0 || !exact) result.Add(values[0]);
             return result;
         }
 
         public NairaNote Spawn(int value, Transform hand, int index)
         {
-            // Side by side and stepped up a little, so every note's value is readable and none overlap.
             int k = index - 1;
             var offset = hand.right * (0.09f * k) + Vector3.up * (0.03f * k);
             var note = pools[value].Get(hand.position + offset, hand.rotation);

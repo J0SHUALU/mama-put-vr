@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 namespace MamaPut
 {
-    // The board on the stall post. Number plate on top, stats or results underneath.
     public class SummaryBoard : MonoBehaviour
     {
         [SerializeField] DayManager dayManager;

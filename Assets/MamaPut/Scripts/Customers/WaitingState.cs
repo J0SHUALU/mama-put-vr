@@ -6,7 +6,6 @@ namespace MamaPut
 
         public override void Tick(Customer c)
         {
-            // People in the line get impatient too, just slower.
             c.DrainPatience(0.25f);
             if (c.Patience <= 0f)
             {

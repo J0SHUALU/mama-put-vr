@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Random danfo horns from different spots on the road so the street feels alive.
     public class AmbientOneShots : MonoBehaviour
     {
         [SerializeField] AudioSource[] voices;

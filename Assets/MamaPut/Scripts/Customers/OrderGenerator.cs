@@ -15,7 +15,6 @@ namespace MamaPut
             var tongs = new List<DishData>();
             foreach (var d in day.menu) (d.servedWithTongs ? tongs : ladle).Add(d);
 
-            // Every plate starts with something from a pot. Nobody orders just dodo.
             if (ladle.Count > 0) order.Add(ladle[Random.Range(0, ladle.Count)]);
 
             int extras = Random.Range(0, day.maxItemsPerOrder);

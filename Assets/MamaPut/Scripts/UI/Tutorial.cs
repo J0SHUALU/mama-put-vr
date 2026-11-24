@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Aunty Funmi's voice note. Each step waits for the player to actually do the thing.
     public class Tutorial : MonoBehaviour
     {
         [System.Serializable]
@@ -32,9 +31,7 @@ namespace MamaPut
 
         void Start()
         {
-            // The ring lives on a world-space canvas at a tiny scale; pulse around that, not around 1.
             if (pointerRing != null) ringScale = pointerRing.localScale;
-            // Runs every time you start from the main menu; Skip is right there if you already know it.
             GameEvents.OrderServed += OnServed;
             GameEvents.PaymentDone += OnPaid;
             Next();
@@ -70,9 +67,8 @@ namespace MamaPut
                 }
             }
 
-            // Scooping doesn't raise an event, so check the utensils until it happens.
             if (scooped || index != 0) return;
-            foreach (var u in FindObjectsByType<Utensil>(FindObjectsSortMode.None))
+            foreach (var u in FindObjectsByType<Utensil>())
                 if (u.IsLoaded) { scooped = true; Next(); break; }
         }
 
@@ -107,7 +103,6 @@ namespace MamaPut
 
         public void Skip() => Finish();
 
-        // The rig's camera isn't tagged MainCamera, so fall back to any active camera.
         static Transform FindView()
         {
             if (Camera.main != null) return Camera.main.transform;

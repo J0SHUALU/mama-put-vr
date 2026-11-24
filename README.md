@@ -90,12 +90,12 @@ No concrete class inherits from another concrete class. Everything goes through 
 The target is a steady 72 fps on Quest 2.
 
 - Environment marked batching static (**Mama Put > Mark Selection Batching Static**)
-- SRP Batcher on, with GPU instancing on customers, plates and notes
+- SRP Batcher on, with GPU instancing on the food portions, plates, notes and danfo materials
 - LOD groups on the background crowd, danfos and buildings
 - Kenney and KayKit models share one colour atlas per pack
 - The danfo, kekes and okadas are under 400 polygons each, with a simpler danfo for its far LOD
 - One warm mixed-mode sun with light probes for the moving customers
-- IL2CPP, ARM64, ASTC, 4x MSAA, fixed foveated rendering
+- IL2CPP, ARM64, Vulkan, ASTC, 4x MSAA, HDR off and a 2.5 m shadow distance
 - Plates, notes, portions and customers are pooled, so nothing is created or destroyed mid-rush
 - No occlusion culling: the stall is one open view and frustum culling already covers it
 

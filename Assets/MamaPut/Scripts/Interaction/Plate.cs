@@ -39,7 +39,6 @@ namespace MamaPut
             contents.Clear();
         }
 
-        // Called when a customer takes it.
         public void HandTo(Transform hand)
         {
             ForceRelease();
@@ -47,8 +46,6 @@ namespace MamaPut
             if (body != null)
             {
                 body.isKinematic = true;
-                // An interpolated body keeps snapping back to its last physics pose, so the plate
-                // (and the hands on it) trails behind a walking customer. Let the parent drive it.
                 body.interpolation = RigidbodyInterpolation.None;
                 body.detectCollisions = false;
             }

@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Sits next to the customer's Animator. Keeps a served plate in front of the hips, so it bobs
-    // with the walk, and pulls both hands onto its rim with IK.
-    // Needs IK Pass ticked on the base layer of Customer.controller.
     public class CustomerPlateHold : MonoBehaviour
     {
         [SerializeField] float blendTime = 0.35f;
@@ -46,11 +43,9 @@ namespace MamaPut
             weight = Mathf.MoveTowards(weight, goal, Time.deltaTime / blendTime);
         }
 
-        // After animation, so the plate follows this frame's hip height and the IK next frame lines up.
         void LateUpdate()
         {
             PlaceCarry();
-            // The plate's Rigidbody can keep writing its old pose back, so pin it to the carry point every frame.
             if (plate != null && carry != null) plate.SetPositionAndRotation(carry.position, carry.rotation);
         }
 
@@ -77,7 +72,6 @@ namespace MamaPut
             animator.SetIKPosition(AvatarIKGoal.LeftHand, p - side);
             animator.SetIKPosition(AvatarIKGoal.RightHand, p + side);
 
-            // Elbows out to the sides and slightly back, the way you'd carry a full plate.
             Vector3 elbowUp = Vector3.up * 0.05f - root.forward * 0.05f;
             animator.SetIKHintPosition(AvatarIKHint.LeftElbow, p - root.right * (rimOffset + 0.15f) + elbowUp);
             animator.SetIKHintPosition(AvatarIKHint.RightElbow, p + root.right * (rimOffset + 0.15f) + elbowUp);

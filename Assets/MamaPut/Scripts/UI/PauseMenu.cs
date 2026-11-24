@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 namespace MamaPut
 {
-    // Menu button on the left controller (or Escape in the editor) pauses the game and shows this in front of you.
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField] GameObject panel;
@@ -77,7 +76,6 @@ namespace MamaPut
 #endif
         }
 
-        // Float the panel at eye height straight ahead of wherever the player is looking.
         void Place()
         {
             if (view == null)

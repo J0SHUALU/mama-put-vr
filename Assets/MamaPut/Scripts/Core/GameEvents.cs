@@ -18,7 +18,6 @@ namespace MamaPut
         public static void RaisePotEmpty(IFoodSource pot) => PotEmpty?.Invoke(pot);
         public static void RaiseDayEnded(DaySummary s) => DayEnded?.Invoke(s);
 
-        // Static events survive domain reload being off in the editor, so clear them on play.
         [UnityEngine.RuntimeInitializeOnLoadMethod(UnityEngine.RuntimeInitializeLoadType.SubsystemRegistration)]
         static void Reset()
         {

@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace MamaPut
 {
-    // A or X hands things across the counter, so you don't have to reach over it:
-    // holding a plate serves it, holding change gives it, empty hand takes the customer's money.
     public class HandOverButton : MonoBehaviour
     {
         [SerializeField] QueueManager queue;
@@ -31,14 +29,14 @@ namespace MamaPut
             var customer = queue.Front;
             if (customer == null) return;
 
-            foreach (var plate in FindObjectsByType<Plate>(FindObjectsSortMode.None))
+            foreach (var plate in FindObjectsByType<Plate>())
                 if (plate.IsHeld && customer.IsOrdering)
                 {
                     customer.TryServe(plate);
                     return;
                 }
 
-            foreach (var note in FindObjectsByType<NairaNote>(FindObjectsSortMode.None))
+            foreach (var note in FindObjectsByType<NairaNote>())
             {
                 if (!note.IsHeld) continue;
                 note.LetGo();
@@ -47,7 +45,6 @@ namespace MamaPut
                 return;
             }
 
-            // Nothing in hand: take whatever the customer is holding out.
             foreach (var note in customer.NotesOut)
                 if (note != null && note.gameObject.activeInHierarchy) PayIn(note);
         }

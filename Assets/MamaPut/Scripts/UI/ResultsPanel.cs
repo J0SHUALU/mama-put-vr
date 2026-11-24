@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 namespace MamaPut
 {
-    // Pops up in front of the player when a day ends: how it went, what to do better, and where to go next.
     public class ResultsPanel : MonoBehaviour
     {
         [SerializeField] GameObject panel;

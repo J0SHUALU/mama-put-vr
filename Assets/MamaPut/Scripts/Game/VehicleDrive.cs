@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Drives a vehicle straight along the way it faces and loops it back to the start of the road.
     public class VehicleDrive : MonoBehaviour
     {
         [SerializeField] float speed = 6f;

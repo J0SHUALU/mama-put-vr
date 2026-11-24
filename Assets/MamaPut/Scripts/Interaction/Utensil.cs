@@ -79,7 +79,6 @@ namespace MamaPut
             var source = other.GetComponentInParent<IFoodSource>();
             if (source != null)
             {
-                // Dipping a loaded spoon back into the same pot puts the food back.
                 if (IsLoaded) { if (source.Dish == loadedDish) PutBack(source); }
                 else Scoop(source);
                 return;

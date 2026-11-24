@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // Lives on the back table. Tip it into the matching pot to top it up, then it goes home.
     public class RefillBowl : GrabbableItem
     {
         [SerializeField] DishData dish;

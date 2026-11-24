@@ -17,7 +17,6 @@ namespace MamaPut
             body = GetComponent<Rigidbody>();
         }
 
-        // Notes in a customer's hand float there until the player takes them.
         public void HoldStill()
         {
             if (body != null) body.isKinematic = true;
@@ -28,7 +27,6 @@ namespace MamaPut
             if (body != null) StartCoroutine(DropNextFrame());
         }
 
-        // The grab interactable restores the old kinematic flag on release, so wait a frame.
         System.Collections.IEnumerator DropNextFrame()
         {
             yield return null;

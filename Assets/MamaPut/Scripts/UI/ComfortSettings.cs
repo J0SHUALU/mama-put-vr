@@ -3,7 +3,6 @@ using Unity.XR.CoreUtils;
 
 namespace MamaPut
 {
-    // Seated mode lifts the player instead of lowering the whole stall.
     public class ComfortSettings : MonoBehaviour
     {
         [SerializeField] XROrigin origin;
@@ -20,7 +19,6 @@ namespace MamaPut
         {
             seated = PlayerPrefs.GetInt(SeatedKey, 0) == 1;
             Apply();
-            // Saved from the settings panel; smooth turning and full volume by default.
             SetSnapTurn(PlayerPrefs.GetInt("mamaput.snap", 0) == 1);
             AudioListener.volume = PlayerPrefs.GetFloat("mamaput.volume", 1f);
         }
@@ -32,12 +30,9 @@ namespace MamaPut
             Apply();
         }
 
-        // Snap turn on: right stick turns in steps. Off: it turns smoothly as you push.
         public void SetSnapTurn(bool on)
         {
             if (snapTurnProvider != null) snapTurnProvider.enabled = on;
-            // The starter rig's ControllerInputActionManager picks snap or smooth; set it by name so this
-            // script doesn't depend on the sample's assembly.
             foreach (var mb in GetComponentsInChildren<MonoBehaviour>(true))
             {
                 var type = mb.GetType();
@@ -50,7 +45,6 @@ namespace MamaPut
 
         void Apply()
         {
-            // CameraYOffset is ignored in floor tracking mode, so move the offset object directly.
             var offset = origin.CameraFloorOffsetObject.transform;
             var p = offset.localPosition;
             p.y = seated ? seatedLift : 0f;

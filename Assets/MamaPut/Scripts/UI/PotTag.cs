@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // The price tag clipped to each pot, plus the "don finish" warning when it runs out.
     public class PotTag : MonoBehaviour
     {
         [SerializeField] FoodPot pot;

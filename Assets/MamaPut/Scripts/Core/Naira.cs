@@ -6,7 +6,6 @@ namespace MamaPut
     {
         static string symbol;
 
-        // Falls back to "N" if the font can't draw the naira sign, which is how most people write it anyway.
         public static string Symbol
         {
             get

@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // First thing the player sees. Hides the stall UI until Play is pressed.
     public class MainMenu : MonoBehaviour
     {
         [Tooltip("Shown after Play: the day board, comfort panel and so on.")]

@@ -64,7 +64,6 @@ namespace MamaPut
             ExitPoint = exit;
             if (animator != null)
             {
-                // Different idle, start frame and pace for each visit so the line looks like people.
                 animator.SetFloat(IdleVariantHash, Random.Range(0, IdleVariants));
                 animator.speed = Random.Range(0.9f, 1.1f);
                 animator.Play("Idle", 0, Random.value);
@@ -109,7 +108,6 @@ namespace MamaPut
             if (dir.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(dir);
         }
 
-        // Called by CustomerHandZone when the player lets go of a plate near the customer.
         public void TryServe(Plate plate)
         {
             if (!(state is OrderingState) || plateHeld != null) return;
@@ -125,7 +123,6 @@ namespace MamaPut
             else
             {
                 LosePatience(5f);
-                // Say what was wrong, so the player can fix the plate instead of guessing.
                 bubble.Complain($"I want {CurrentOrder}. This one na {plate.Contents}!");
                 Debug.Log($"Wrong plate: ordered {CurrentOrder}, got {plate.Contents}");
                 GameEvents.RaiseOrderServed(this, false);
@@ -155,7 +152,6 @@ namespace MamaPut
             else bubble.ShowChange(PaidAmount, changeOwed);
         }
 
-        // Called by CustomerHandZone when the player drops change notes near the customer.
         public void ReceiveChange(NairaNote note)
         {
             if (!(state is PayingState) || ChangeOwed == 0) return;

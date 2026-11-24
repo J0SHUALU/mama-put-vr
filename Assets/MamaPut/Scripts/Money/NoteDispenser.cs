@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace MamaPut
 {
-    // A slot in the change tray. Take a note out and another one appears.
     public class NoteDispenser : MonoBehaviour
     {
         [SerializeField] NairaNote notePrefab;

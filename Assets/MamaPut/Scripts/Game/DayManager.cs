@@ -12,7 +12,6 @@ namespace MamaPut
         [SerializeField] QueueManager queue;
         [SerializeField] CashBox cashBox;
 
-        // Unity can't serialize interfaces, so these are assigned as components and cast.
         [SerializeField] MonoBehaviour orderGeneratorComponent;
         [SerializeField] MonoBehaviour scoreServiceComponent;
 
@@ -79,7 +78,6 @@ namespace MamaPut
             var wait = new WaitForSeconds(CurrentDay.secondsBetweenCustomers);
             while (spawned < CurrentDay.customerCount)
             {
-                // Don't let the line get silly long. Four waiting is enough pressure.
                 if (queue.Count < 4) SpawnCustomer();
                 yield return wait;
             }
@@ -114,7 +112,6 @@ namespace MamaPut
             running = false;
             var summary = score.GetSummary();
             SaveSystem.SaveStars(summary.dayNumber, summary.stars);
-            // Finishing a day always opens the next one. Hitting the target is what earns the extra star.
             if (SaveSystem.UnlockedDay <= summary.dayNumber)
                 SaveSystem.UnlockedDay = Mathf.Min(summary.dayNumber + 1, days.Length);
             GameEvents.RaiseDayEnded(summary);

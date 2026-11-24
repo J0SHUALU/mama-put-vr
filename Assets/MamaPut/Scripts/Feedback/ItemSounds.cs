@@ -4,7 +4,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace MamaPut
 {
-    // Pick-up and knock sounds for anything the player can grab.
     [RequireComponent(typeof(AudioSource))]
     public class ItemSounds : MonoBehaviour
     {
