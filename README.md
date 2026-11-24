@@ -53,16 +53,13 @@ Game Design Document: [link]
 
 ## How to test it
 
-1. **Tutorial.** After pressing Play, Aunty's card over the counter walks you through one full sale. It moves on only when you scoop, serve and get paid. Press Skip to go straight to the day.
+1. **Tutorial.** Tutorial card at the main menu explaining the controls.
 2. **Scooping.** Grab the ladle, dip it in the rice pot (a portion appears in it), hold it over a plate and tip it. The portion should land on the plate. Either utensil works on any dish. Dip a full spoon back into the same pot to put the food back.
 3. **Serving.** Read the order bubble, build the plate with exactly what it says, and press A while holding the plate (or let go of it in front of the customer). A wrong plate gets a complaint that says what was wrong and costs them patience. A right one moves them to paying.
 4. **Paying.** Press A with an empty hand to take their money, or drop their note in the cash tin. If the till says change is owed, grab notes from the change tray and press A. Exact change counts towards the third star.
 5. **Running out.** Keep serving until a pot is empty, then tip the matching refill bowl from the back table into it.
 6. **Ending a day.** After the last customer a results screen shows sales, walkouts, exact change, stars and tips. Continue opens the next day whether or not you hit the target. The target is what earns the extra star.
 
-## Scene setup
-
-If you're rebuilding the scene from scratch, follow [docs/SCENE_SETUP.md](docs/SCENE_SETUP.md).
 
 ## Project layout
 
@@ -111,4 +108,4 @@ The target is a steady 72 fps on Quest 2.
 - Food textures cropped from reference photos of each dish (the white rice photo is from [Vecteezy](https://www.vecteezy.com))
 - [Ojuju](https://fonts.google.com/specimen/Ojuju) font by the Ojuju Project Authors (SIL Open Font License)
 - Naira note images from the [Central Bank of Nigeria currency gallery](https://www.cbn.gov.ng/currency/gallery/) (official specimen images, kept with a faint SPECIMEN mark)
-- The danfo, keke and okada models, food meshes, pots, enamel bowl and plates, ladle, tongs, generator hum, danfo horns and all the UI are my own
+- The danfo, keke, and okada models, food meshes, pots, enamel bowl and plates, ladle, tongs, generator hum, danfo horns and all the UI are my own
