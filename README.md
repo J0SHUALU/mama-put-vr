@@ -18,7 +18,6 @@ Game Design Document: [link]
 - A till readout over the stall with today's takings and any change you still owe
 - Five days that get harder: one dish and exact money on Day 1, up to three dishes, change and less patience by Day 5
 - A results screen after every day with your stats, tips when something went wrong (or "Well done" when nothing did), and Retry, Continue or Main menu
-- A short tutorial card from Aunty Funmi, just over the counter, that waits for you to actually do each step. It runs each time you press Play and has a Skip button
 - Refill bowls with name cards on the back table for when a pot runs empty
 - Pause from the menu button on the left controller or the Pause button by the till
 - Moving danfos, kekes and cars, a recorded Lagos bus stop in the background and food-specific scoop sounds
